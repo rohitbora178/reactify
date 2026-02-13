@@ -46,32 +46,27 @@ const App = () => {
 
   return (
     <div className="container">
-      <div
-        className={`envelope ${isOpen ? "open" : ""}`}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <div className="flap"></div>
-
-        <div className="letter">
-          {isOpen && (
-            <div className="slider" onClick={(e) => e.stopPropagation()}>
-              
-              {slides[index].image && (
-                <img src={slides[index].image} alt="love" />
-              )}
-
-              <p className="message">
-                {slides[index].text}
-              </p>
-
-              <div className="controls">
-                <button onClick={prevSlide}>◀</button>
-                <button onClick={nextSlide}>▶</button>
-              </div>
-            </div>
-          )}
+      {!isOpen ? (
+        <div className="envelope" onClick={() => setIsOpen(!isOpen)}>
+          <div className="flap"></div>
+          <div className="letter"></div>
         </div>
-      </div>
+      ) : (
+        <div className="slider" onClick={(e) => e.stopPropagation()}>
+          {slides[index].image && (
+            <img src={slides[index].image} alt="love" />
+          )}
+
+          <p className="message">
+            {slides[index].text}
+          </p>
+
+          <div className="controls">
+            <button onClick={prevSlide}>◀</button>
+            <button onClick={nextSlide}>▶</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
