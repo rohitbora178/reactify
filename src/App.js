@@ -41,12 +41,16 @@ const App = () => {
 
   const nextSlide = (e) => {
     e.stopPropagation();
-    setIndex((prev) => (prev + 1) % slides.length);
+    if (index < slides.length - 1) {
+      setIndex((prev) => prev + 1);
+    }
   };
 
   const prevSlide = (e) => {
     e.stopPropagation();
-    setIndex((prev) => (prev - 1 + slides.length) % slides.length);
+    if (index > 0) {
+      setIndex((prev) => prev - 1);
+    }
   };
 
   const handleLoveClick = (slideIndex) => {
@@ -92,8 +96,8 @@ const App = () => {
           </p>
 
           <div className="controls">
-            <button onClick={prevSlide}>◀</button>
-            <button onClick={nextSlide}>▶</button>
+            <button onClick={prevSlide} disabled={index === 0}>◀</button>
+            <button onClick={nextSlide} disabled={index === slides.length - 1}>▶</button>
           </div>
         </div>
       )}
