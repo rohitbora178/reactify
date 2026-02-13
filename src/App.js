@@ -67,6 +67,9 @@ const App = () => {
         </div>
       ) : !showSlider ? (
         <div className="big-love-container" onClick={(e) => e.stopPropagation()}>
+          <div className="panda-center">
+            <img src="https://images.unsplash.com/photo-1525382455947-f319bc05fb35?w=300&h=300&fit=crop" alt="panda" className="panda-image" onClick={(e) => e.stopPropagation()} />
+          </div>
           <div className="love-icon love-icon-1" onClick={() => handleLoveClick(0)}>❤️</div>
           <div className="love-icon love-icon-2" onClick={() => handleLoveClick(1)}>💕</div>
           <div className="love-icon love-icon-3" onClick={() => handleLoveClick(2)}>❤️</div>
