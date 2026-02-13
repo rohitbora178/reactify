@@ -32,6 +32,7 @@ const slides = [
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showSlider, setShowSlider] = useState(false);
   const [index, setIndex] = useState(0);
 
   const nextSlide = (e) => {
@@ -44,11 +45,18 @@ const App = () => {
     setIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
+  const handleLoveClick = (e) => {
+    e.stopPropagation();
+    setShowSlider(true);
+  };
+
   return (
     <div className="container">
       {!isOpen ? (
         <div className="envelope" onClick={() => setIsOpen(!isOpen)}>
-          <div className="flap"></div>
+          <div className="flap">
+            <div className="flap-text">Open me 💌</div>
+          </div>
           <div className="letter">
             <div className="love-icon love-icon-1">❤️</div>
             <div className="love-icon love-icon-2">💕</div>
@@ -56,6 +64,10 @@ const App = () => {
             <div className="love-icon love-icon-4">💖</div>
             <div className="love-icon love-icon-5">❤️</div>
           </div>
+        </div>
+      ) : !showSlider ? (
+        <div className="big-love-container" onClick={handleLoveClick}>
+          <div className="big-love">❤️</div>
         </div>
       ) : (
         <div className="slider" onClick={(e) => e.stopPropagation()}>

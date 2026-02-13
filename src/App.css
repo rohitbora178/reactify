@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #ff6a88, #ff99ac);
+  background: linear-gradient(135deg, #6b7e7b, #121212);
   padding: 20px;
 }
 
@@ -42,12 +42,25 @@
   transform-origin: top;
   transition: transform 0.8s ease;
   z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flap-text {
+  font-size: 28px;
+  font-weight: 700;
+  color: rgb(255, 0, 0);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  animation: textBounce 1.5s ease-in-out infinite;
+  letter-spacing: 1px;
+  position: relative;
+  bottom: 60px;
 }
 
 .envelope.open .flap {
   transform: rotateX(180deg);
   background: transparent;
-  
 }
 
 /* Letter */
@@ -73,6 +86,25 @@
 .envelope.open .letter {
   transform: translateY(-200px);
   
+}
+
+/* Big Love Container */
+.big-love-container {
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  animation: fadeIn 0.8s ease;
+}
+
+.big-love {
+  font-size: 150px;
+  animation: bigLovePulse 0.8s ease-in-out infinite, bigLoveFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 10px 40px rgba(255, 77, 109, 0.5));
+  user-select: none;
 }
 
 /* Slider */
@@ -159,6 +191,21 @@
 @keyframes heartFloat {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
+}
+
+@keyframes textBounce {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-8px) scale(1.05); }
+}
+
+@keyframes bigLovePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes bigLoveFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
 }
 
 /* Love Icon */
