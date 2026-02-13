@@ -407,6 +407,36 @@
   .envelope.open .letter {
     transform: translateY(-170px);
   }
+
+  .letter .love-icon-1 {
+    top: 10px;
+    left: 15%;
+    font-size: 35px;
+  }
+
+  .letter .love-icon-2 {
+    top: 30px;
+    right: 15%;
+    font-size: 38px;
+  }
+
+  .letter .love-icon-3 {
+    top: 50%;
+    left: 5px;
+    font-size: 40px;
+  }
+
+  .letter .love-icon-4 {
+    top: 50%;
+    right: 5px;
+    font-size: 38px;
+  }
+
+  .letter .love-icon-5 {
+    bottom: 30px;
+    left: 50%;
+    font-size: 42px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -421,5 +451,35 @@
 
   .message {
     font-size: 0.9rem;
+  }
+
+  .letter .love-icon-1 {
+    top: 8px;
+    left: 15%;
+    font-size: 30px;
+  }
+
+  .letter .love-icon-2 {
+    top: 20px;
+    right: 15%;
+    font-size: 32px;
+  }
+
+  .letter .love-icon-3 {
+    top: 50%;
+    left: 5px;
+    font-size: 32px;
+  }
+
+  .letter .love-icon-4 {
+    top: 50%;
+    right: 5px;
+    font-size: 30px;
+  }
+
+  .letter .love-icon-5 {
+    bottom: 20px;
+    left: 50%;
+    font-size: 34px;
   }
 }
