@@ -49,7 +49,13 @@ const App = () => {
       {!isOpen ? (
         <div className="envelope" onClick={() => setIsOpen(!isOpen)}>
           <div className="flap"></div>
-          <div className="letter"></div>
+          <div className="letter">
+            <div className="love-icon love-icon-1">❤️</div>
+            <div className="love-icon love-icon-2">💕</div>
+            <div className="love-icon love-icon-3">❤️</div>
+            <div className="love-icon love-icon-4">💖</div>
+            <div className="love-icon love-icon-5">❤️</div>
+          </div>
         </div>
       ) : (
         <div className="slider" onClick={(e) => e.stopPropagation()}>

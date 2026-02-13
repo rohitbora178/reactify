@@ -14,7 +14,7 @@
   padding: 20px;
 }
 
-/* Bigger Envelope */
+/* Envelope */
 .envelope {
   position: relative;
   width: 100%;
@@ -24,10 +24,12 @@
   cursor: pointer;
   perspective: 1200px;
   transition: 0.4s;
+  animation: envelopeBounce 2s ease-in-out infinite;
 }
 
 .envelope:hover {
   transform: scale(1.05);
+  filter: drop-shadow(0 10px 30px rgba(255, 77, 109, 0.4));
 }
 
 /* Flap */
@@ -64,7 +66,7 @@
   flex-direction: column;
   align-items: stretch;
   z-index: 2;
-  overflow: auto;
+  overflow: visible;
   box-sizing: border-box;
 }
 
@@ -140,6 +142,68 @@
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes envelopeBounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.15); }
+}
+
+@keyframes heartFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Love Icon */
+.love-icon {
+  position: absolute;
+  font-size: 50px;
+  animation: heartPulse 1.5s ease-in-out infinite, heartFloat 3s ease-in-out infinite;
+}
+
+.love-icon-1 {
+  top: -20px;
+  left: 10%;
+  font-size: 45px;
+  animation-delay: 0s;
+}
+
+.love-icon-2 {
+  top: 20px;
+  right: 5%;
+  font-size: 50px;
+  animation-delay: 0.3s;
+}
+
+.love-icon-3 {
+  top: 50%;
+  left: -15px;
+  font-size: 52px;
+  animation-delay: 0.6s;
+  transform: translateY(-50%);
+}
+
+.love-icon-4 {
+  top: 50%;
+  right: -15px;
+  font-size: 48px;
+  animation-delay: 0.9s;
+  transform: translateY(-50%);
+}
+
+.love-icon-5 {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 55px;
+  animation-delay: 1.2s;
 }
 
 /* Mobile Responsive */
