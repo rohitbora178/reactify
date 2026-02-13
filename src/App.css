@@ -189,13 +189,21 @@
 /* Preserve line breaks */
 .message {
   white-space: pre-line;
-  color: #ff4d6d;
-  font-weight: 500;
+  color: #ffffff;
+  font-weight: 600;
   margin-bottom: 20px;
-  line-height: 1.6;
+  line-height: 1.8;
   overflow-wrap: anywhere;
   word-break: break-word;
-  animation: fadeIn 0.8s ease 0.3s both;
+  animation: textSlideIn 0.8s ease 0.3s both, textGlow 2s ease-in-out infinite;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ff4d6d 0%, #ff758c 50%, #c2185b 100%);
+  box-shadow: 0 8px 32px rgba(255, 77, 109, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Controls */
@@ -292,6 +300,28 @@
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes textSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 77, 109, 0.3);
+  }
+  50% {
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 12px 40px rgba(255, 77, 109, 0.5);
   }
 }
 
