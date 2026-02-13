@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #6b7e7b, #121212);
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffe0ec 50%, #ffd6e8 100%);
   padding: 20px;
 }
 
