@@ -9,6 +9,7 @@ function App() {
   const [tempEmoji, setTempEmoji] = useState(null);
   const [currentStar, setCurrentStar] = useState(0);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const emojis = {
     1: '😢',
@@ -16,6 +17,19 @@ function App() {
     3: '😊',
     4: '😄',
     5: '😍'
+  };
+
+  const handleSubmit = () => {
+    if (rating === 0) {
+      setErrorMessage('Please click on Stars to Rate');
+      return;
+    }
+    if (reviewText.trim() === '') {
+      setErrorMessage('Please write a message before submitting');
+      return;
+    }
+    setErrorMessage('');
+    sendEmail();
   };
 
   const handleRatingChange = (star) => {
@@ -31,7 +45,7 @@ function App() {
     try {
       await emailjs.send(
         'service_lvvgut5',
-        'template_jzsl8ha', 
+        'template_jzsl8ha',
         {
           rating: rating,
           message: reviewText,
@@ -48,7 +62,7 @@ function App() {
       setTimeout(() => {
         setShowSuccess(false);
         setPage(5);
-      }, 3000); 
+      }, 3000);
     } catch (error) {
       alert('Failed to send review. Please try again.');
       console.error('Email send error:', error);
@@ -312,7 +326,9 @@ function App() {
                 rows="4"
               />
             </div>
-            <button onClick={sendEmail} className="submit-btn">
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+            <button onClick={handleSubmit} className="submit-btn">
               Submit & Continue
             </button>
             <div className="review-hearts">
