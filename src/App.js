@@ -274,9 +274,9 @@ function App() {
                   <img src="/kalyan.jpg" alt="Memory 10" className="gallery-img" />
                   <img src="/math.jpg" alt="Memory 10" className="gallery-img" />
                   <img src="https://content.jdmagicbox.com/comp/pune/z4/020pxx20.xx20.180921192240.c1z4/catalogue/cream-craver-pune-restaurants-rlva2djfuc.jpg" alt="Memory 1" className="gallery-img" />
+                  <img src="/shri.jpg" alt="Memory 10" className="gallery-img" />
 
                   <img src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/2018/03/12230236/11032018_JWmarriott_06.jpg" alt="Memory 6" className="gallery-img" />
-                  <img src="/shri.jpg" alt="Memory 10" className="gallery-img" />
 
                   <img src="https://www.crazycheesy.com/wp-content/uploads/2023/01/c1.jpg" alt="Memory 7" className="gallery-img" />
 
