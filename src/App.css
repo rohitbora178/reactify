@@ -342,12 +342,10 @@ body::before {
   display: block;
   border-radius: 18px;
   transition: transform 0.4s var(--animation-timing), filter 0.4s var(--animation-timing);
-  filter: brightness(1.05) contrast(1.1);
 }
 
 .cardImage:hover {
   transform: scale(1.08) rotate(1deg);
-  filter: brightness(1.1) contrast(1.15) saturate(1.1);
 }
 
 .title {
