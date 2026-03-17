@@ -215,6 +215,26 @@ function App() {
       case 2:
         return (
           <div className="card">
+            <audio src="/videoplayback.mp3" autoPlay loop />
+               <div className="balloons-container">
+              <div className="balloon">🎈</div>
+              <div className="balloon">🎈</div>
+              <div className="balloon">🎈</div>
+              <div className="balloon">🎈</div>
+              <div className="balloon">🎈</div>
+            </div>
+            <div className="confetti-container">
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+            </div>
             <div className="cardHeader">
               <img
                 className="cardImage"
@@ -222,6 +242,7 @@ function App() {
                 alt="Disha"
               />
             </div>
+            
 
             <h1 className="title">🎂 Happy Birthday Disha 🎂</h1>
             <h3 className="date">03 / 04 / 2026</h3>
