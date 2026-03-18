@@ -4,6 +4,7 @@ import "./App.css";
 
 function App() {
   const [page, setPage] = useState(0);
+  const [countdown, setCountdown] = useState(3);
   const [rating, setRating] = useState(0);
   const [reviewText, setReviewText] = useState('');
   const [tempEmoji, setTempEmoji] = useState(null);
@@ -77,10 +78,23 @@ function App() {
 
   useEffect(() => {
     if (page === 1) {
-      const timer = setTimeout(() => setPage(2), 3000);
+      const timer = setTimeout(() => setPage(1.5), 3000);
       return () => clearTimeout(timer);
     }
   }, [page]);
+
+  useEffect(() => {
+    if (page === 1.5 && countdown > 0) {
+      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (page === 1.5 && countdown === 0) {
+      const timer = setTimeout(() => {
+        setPage(2);
+        setCountdown(3);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [page, countdown]);
 
   const renderPage = () => {
     switch (page) {
@@ -210,6 +224,16 @@ function App() {
               <div className="heart">💗</div>
             </div>
             <p className="loading-text">Just a moment, something wonderful is coming!</p>
+          </div>
+        );
+      case 1.5:
+        return (
+          <div className="countdown-page">
+            <div className="countdown-container">
+              <h2 className="countdown-text">Get Ready!</h2>
+              <div className="countdown-number">{countdown}</div>
+              <p className="countdown-message">Your special moment is here...</p>
+            </div>
           </div>
         );
       case 2:
