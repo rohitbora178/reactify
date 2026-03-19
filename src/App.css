@@ -611,6 +611,26 @@ body::before {
   box-shadow: 0 15px 35px rgba(79, 172, 254, 0.4);
 }
 
+.load-more-btn {
+  margin-top: 20px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 50px;
+  background: var(--accent-gradient);
+  color: rgb(101, 56, 56);
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);
+  transition: all var(--animation-speed) var(--animation-timing);
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.load-more-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(79, 172, 254, 0.4);
+}
+
 .about-page {
   width: 550px;
   max-width: 95%;

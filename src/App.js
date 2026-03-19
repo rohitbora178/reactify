@@ -37,6 +37,7 @@ function App() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [galleryExpanded, setGalleryExpanded] = useState(false);
 
   const emojis = {
     1: '😢',
@@ -45,6 +46,28 @@ function App() {
     4: '😄',
     5: '😍'
   };
+
+  const galleryImages = [
+    { src: "/collage.jpg", alt: "Memory 10" },
+    { src: "/bhel.jpg", alt: "Memory 10" },
+    { src: "/kalyan.jpg", alt: "Memory 10" },
+    { src: "/math.jpg", alt: "Memory 10" },
+    { src: "https://content.jdmagicbox.com/comp/pune/z4/020pxx20.xx20.180921192240.c1z4/catalogue/cream-craver-pune-restaurants-rlva2djfuc.jpg", alt: "Memory 1" },
+    { src: "/shri.jpg", alt: "Memory 10" },
+    { src: "https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/2018/03/12230236/11032018_JWmarriott_06.jpg", alt: "Memory 6" },
+    { src: "https://www.crazycheesy.com/wp-content/uploads/2023/01/c1.jpg", alt: "Memory 7" },
+    { src: "https://images.moneycontrol.com/static-mcnews/2018/10/DMart-e1539415670772-770x433.jpg?impolicy=website&width=770&height=431", alt: "Memory 2" },
+    { src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/e8/5f/29/excellent-food-and-service.jpg?w=900&h=500&s=1", alt: "Memory 4" },
+    { src: "https://images.jdmagicbox.com/comp/pune/h7/020pxx20.xx20.191017072226.a4h7/catalogue/theobroma-kothrud-pune-cake-shops-bxbjauajlk.jpg", alt: "Memory 3" },
+    { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvvD37MHjmcVGCSEFs_O7D1jy7uL4BZWSKYw&s", alt: "Memory 10" },
+    { src: "https://im.whatshot.in/img/2018/Nov/jm-1-cropped-1541744951.jpg", alt: "Memory 9" },
+    { src: "https://i.ytimg.com/vi/7vhwmRxD2v8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC1Te6vSGttcdqTyFpiKEHXVrEWcg", alt: "Memory 10" },
+    { src: "https://d2kihw5e8drjh5.cloudfront.net/eyJidWNrZXQiOiJ1dGEtaW1hZ2VzIiwia2V5IjoicGxhY2VfaW1nLzFiNTc1M2I0NDBkOTRkMTBhN2IxYjE1YWE2OTBiYTFkIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2NDAsImhlaWdodCI6NjQwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJ0b0Zvcm1hdCI6ICJ3ZWJwIn19", alt: "Memory 5" },
+    { src: "/milk.jpg", alt: "Memory 10" },
+    { src: "/coffe.jpg", alt: "Memory 10" },
+    { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCwaqPpFbSQc68w2As8EtjPWTpz7rEN6Cl4w&s", alt: "Memory 8" },
+    { src: "/juice.jpg", alt: "Memory 10" }
+  ];
 
   // Image component with fallback and skeleton loading
   const ImageWithFallback = ({ src, alt, fallbackSrc = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2NjYyIvPjwvc3ZnPg==', ...props }) => {
@@ -579,26 +602,24 @@ function App() {
               <div className="memory-gallery">
                 <h2>📸 More Memories</h2>
                 <div className="gallery-grid">
-                  <ImageWithFallback src="/collage.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="/bhel.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="/kalyan.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="/math.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="https://content.jdmagicbox.com/comp/pune/z4/020pxx20.xx20.180921192240.c1z4/catalogue/cream-craver-pune-restaurants-rlva2djfuc.jpg" alt="Memory 1" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="/shri.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/2018/03/12230236/11032018_JWmarriott_06.jpg" alt="Memory 6" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="https://www.crazycheesy.com/wp-content/uploads/2023/01/c1.jpg" alt="Memory 7" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="https://images.moneycontrol.com/static-mcnews/2018/10/DMart-e1539415670772-770x433.jpg?impolicy=website&width=770&height=431" alt="Memory 2" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/e8/5f/29/excellent-food-and-service.jpg?w=900&h=500&s=1" alt="Memory 4" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="https://images.jdmagicbox.com/comp/pune/h7/020pxx20.xx20.191017072226.a4h7/catalogue/theobroma-kothrud-pune-cake-shops-bxbjauajlk.jpg" alt="Memory 3" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvvD37MHjmcVGCSEFs_O7D1jy7uL4BZWSKYw&s" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="https://im.whatshot.in/img/2018/Nov/jm-1-cropped-1541744951.jpg" alt="Memory 9" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="https://i.ytimg.com/vi/7vhwmRxD2v8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC1Te6vSGttcdqTyFpiKEHXVrEWcg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="https://d2kihw5e8drjh5.cloudfront.net/eyJidWNrZXQiOiJ1dGEtaW1hZ2VzIiwia2V5IjoicGxhY2VfaW1nLzFiNTc1M2I0NDBkOTRkMTBhN2IxYjE1YWE2OTBiYTFkIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2NDAsImhlaWdodCI6NjQwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJ0b0Zvcm1hdCI6ICJ3ZWJwIn19" alt="Memory 5" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="/milk.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="/coffe.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCwaqPpFbSQc68w2As8EtjPWTpz7rEN6Cl4w&s" alt="Memory 8" className="gallery-img" loading="lazy" />
-                  <ImageWithFallback src="/juice.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  {(galleryExpanded ? galleryImages : galleryImages.slice(0, 4)).map((image, index) => (
+                    <ImageWithFallback
+                      key={index}
+                      src={image.src}
+                      alt={image.alt}
+                      className="gallery-img"
+                      loading="lazy"
+                    />
+                  ))}
                 </div>
+                {galleryImages.length > 4 && (
+                  <button
+                    className="load-more-btn"
+                    onClick={() => setGalleryExpanded((prev) => !prev)}
+                  >
+                    {galleryExpanded ? 'Show less' : `Load more (${galleryImages.length - 4})`}
+                  </button>
+                )}
               </div>
             </div>
             <div>
