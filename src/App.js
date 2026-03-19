@@ -88,7 +88,7 @@ function App() {
       if (img && img.complete && img.naturalWidth > 0) {
         setLoading(false);
       }
-    });
+    }, [src]);
 
     const onError = () => {
       setImgSrc(fallbackSrc);
