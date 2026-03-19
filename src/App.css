@@ -616,7 +616,7 @@ body::before {
   padding: 12px 28px;
   border: none;
   border-radius: 50px;
-  background: var(--accent-gradient);
+  background: var(--secondary-gradient);
   color: rgb(101, 56, 56);
   cursor: pointer;
   box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);

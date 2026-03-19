@@ -473,8 +473,8 @@ function App() {
               Keep smiling always. 😊
             </p>
             <button onClick={() => setPage(3)} className="next-btn">
-              See Memories
-            </button>
+              See Memories →
+            </button><br/> <br/>
             <div className="hearts">
               <span>❤️</span>
               <span>💖</span>
@@ -624,7 +624,7 @@ function App() {
             </div>
             <div>
               <button onClick={() => setPage(6)} className="about-btn">
-                More About Disha 💖
+                More About Disha 💖 →
               </button>
 
             </div>
@@ -702,7 +702,7 @@ function App() {
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
             <button onClick={handleSubmit} className="submit-btn">
-              Send My Message
+              Send My Message →
             </button>
             <div className="review-hearts">
               <span>💕</span>
@@ -856,7 +856,7 @@ function App() {
 
             <p>Thank you.</p>
             <button onClick={() => setPage(4)} className="next-btn">
-              Share Thoughts
+              Share Your Thoughts →
             </button>
           </div>
         );
