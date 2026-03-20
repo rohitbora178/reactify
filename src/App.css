@@ -63,129 +63,6 @@ body::before {
   perspective: 1000px;
 }
 
-/* Navigation Styles */
-.navigation-container {
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 600px;
-  z-index: 10;
-}
-
-.progress-bar {
-  position: relative;
-  width: 100%;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  margin-bottom: 15px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  border-radius: 4px;
-  transition: width 0.3s ease;
-}
-
-.progress-steps {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.progress-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  opacity: 0.6;
-}
-
-.progress-step.active {
-  opacity: 1;
-}
-
-.progress-step.current {
-  opacity: 1;
-}
-
-.progress-step.current .step-number {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  transform: scale(1.2);
-}
-
-.step-number {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 5px;
-  transition: all 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-.step-label {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 500;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.progress-step:hover .step-number {
-  transform: scale(1.1);
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.nav-btn {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.nav-btn:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-}
-
-.nav-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.nav-prev {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
-
-.nav-next {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-}
-
 .subTitle-con {
   font-family: Copperplate, Papyrus, fantasy;
 }
@@ -267,47 +144,6 @@ body::before {
   text-align: center;
   font-weight: 500;
   line-height: 1.6;
-}
-
-.btn {
-  padding: 18px 36px;
-  font-size: 20px;
-  border: none;
-  border-radius: 50px;
-  background: var(--secondary-gradient);
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(245, 87, 108, 0.3);
-  transition: all var(--animation-speed) var(--animation-timing);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  position: relative;
-  overflow: hidden;
-  transform: translateZ(0);
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.6s ease;
-}
-
-.btn:hover::before {
-  left: 100%;
-}
-
-.btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(245, 87, 108, 0.4);
-}
-
-.btn:active {
-  transform: translateY(-1px) scale(1.02);
 }
 
 .sparkles {
@@ -647,65 +483,6 @@ body::before {
   overflow: hidden;
 }
 
-.back-btn {
-  padding: 16px 32px;
-  font-size: 18px;
-  border: none;
-  border-radius: 50px;
-  background: var(--primary-gradient);
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-  transition: all var(--animation-speed) var(--animation-timing);
-  font-weight: 600;
-  position: relative;
-  overflow: hidden;
-  min-height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.back-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.6s ease;
-}
-
-.back-btn:hover::before {
-  left: 100%;
-}
-
-.back-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
-}
-
-.button-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin: 25px 0;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  .button-container {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .button-container button {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-
 .disha-child-image {
   width: 100%;
   max-width: 450px;
@@ -845,36 +622,6 @@ body::before {
 .memories-content .branch p {
   margin: 8px 0;
   font-size: 1em;
-}
-
-.memories-content .closing {
-  margin-top: 25px;
-  font-weight: 600;
-  color: #4a2b3f;
-}
-
-.memory-hearts {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.memory-hearts span {
-  font-size: 32px;
-  animation: float 3s infinite, pulse 2s infinite;
-}
-
-.memory-hearts span:nth-child(2) {
-  animation-delay: 0.5s;
-}
-
-.memory-hearts span:nth-child(3) {
-  animation-delay: 1s;
-}
-
-.memory-hearts span:nth-child(4) {
-  animation-delay: 1.5s;
 }
 
 .memory-gallery {
@@ -1494,30 +1241,6 @@ body::before {
 .emoji-selected strong {
   font-size: 20px;
   margin-left: 5px;
-}
-
-/* Reaction Display on Review Page */
-.reaction-display {
-  background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(255, 87, 108, 0.1) 100%);
-  border: 2px solid rgba(102, 126, 234, 0.2);
-  border-radius: 12px;
-  padding: 15px 20px;
-  margin: 20px 0 30px 0;
-  text-align: center;
-  animation: slideInDown 0.6s ease;
-}
-
-.reaction-display p {
-  margin: 0;
-  font-size: 16px;
-  color: var(--text-primary);
-}
-
-.reaction-emoji {
-  font-size: 24px;
-  margin-left: 8px;
-  display: inline-block;
-  animation: bounce 0.8s ease infinite;
 }
 
 .success-overlay {
@@ -2473,11 +2196,6 @@ body::before {
     margin-bottom: 20px;
   }
 
-  .btn {
-    padding: 14px 25px;
-    font-size: 18px;
-  }
-
   .sparkles span {
     font-size: 28px;
   }
@@ -2527,11 +2245,6 @@ body::before {
 
   .subtitle {
     font-size: 14px;
-  }
-
-  .btn {
-    padding: 12px 20px;
-    font-size: 16px;
   }
 
   .sparkles span {
@@ -2634,10 +2347,6 @@ body::before {
     height: 150px;
   }
 
-  .memory-hearts span {
-    font-size: 28px;
-  }
-
   .final-page {
     width: 90%;
     padding: 30px 20px;
@@ -2720,10 +2429,6 @@ body::before {
 
   .branch-img {
     height: 120px;
-  }
-
-  .memory-hearts span {
-    font-size: 24px;
   }
 
   .final-page {

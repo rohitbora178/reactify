@@ -212,19 +212,6 @@ function App() {
   }, [page, countdown]);
 
   const renderPage = () => {
-    // Progress steps mapping
-    const progressSteps = [
-      { page: 2, label: "Message" },
-      { page: 3, label: "Memories" },
-      { page: 6, label: "About" },
-      { page: 4, label: "Thoughts" }
-    ];
-
-    const currentStepIndex = progressSteps.findIndex(step => step.page === Math.floor(page));
-    const progressPercentage = currentStepIndex >= 0 ? ((currentStepIndex + 1) / progressSteps.length) * 100 : 0;
-
-    const showNavigation = [2, 3, 4, 6].includes(Math.floor(page));
-
     switch (page) {
       case 0:
         return (
@@ -367,41 +354,6 @@ function App() {
       case 2:
         return (
           <div className="card">
-            {showNavigation && (
-              <div className="navigation-container">
-                <div className="progress-bar">
-                  <div className="progress-fill" style={{ width: `${progressPercentage}%` }}></div>
-                  <div className="progress-steps">
-                    {progressSteps.map((step, index) => (
-                      <div
-                        key={step.page}
-                        className={`progress-step ${index <= currentStepIndex ? 'active' : ''} ${step.page === Math.floor(page) ? 'current' : ''}`}
-                        onClick={() => setPage(step.page)}
-                      >
-                        <span className="step-number">{index + 1}</span>
-                        <span className="step-label">{step.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="nav-buttons">
-                  <button
-                    className="nav-btn nav-prev"
-                    onClick={() => setPage(0)}
-                    disabled={page === 2}
-                  >
-                    ← Start Over
-                  </button>
-                  <button
-                    className="nav-btn nav-next"
-                    onClick={() => setPage(3)}
-                  >
-                    Memories →
-                  </button>
-                </div>
-              </div>
-            )}
-
             <audio src="/song.mp3" autoPlay loop />
             <div className="balloons-container">
               <div className="balloon">🎈</div>
@@ -519,40 +471,6 @@ function App() {
       case 3:
         return (
           <div className="memories-page">
-            {showNavigation && (
-              <div className="navigation-container">
-                <div className="progress-bar">
-                  <div className="progress-fill" style={{ width: `${progressPercentage}%` }}></div>
-                  <div className="progress-steps">
-                    {progressSteps.map((step, index) => (
-                      <div
-                        key={step.page}
-                        className={`progress-step ${index <= currentStepIndex ? 'active' : ''} ${step.page === Math.floor(page) ? 'current' : ''}`}
-                        onClick={() => setPage(step.page)}
-                      >
-                        <span className="step-number">{index + 1}</span>
-                        <span className="step-label">{step.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="nav-buttons">
-                  <button
-                    className="nav-btn nav-prev"
-                    onClick={() => setPage(2)}
-                  >
-                    ← Message
-                  </button>
-                  <button
-                    className="nav-btn nav-next"
-                    onClick={() => setPage(4)}
-                  >
-                    Thoughts →
-                  </button>
-                </div>
-              </div>
-            )}
-
             <h1 className="memories-title">🌳 Our Memories Tree</h1>
             <div className="memories-content">
               <p>
@@ -666,39 +584,6 @@ function App() {
       case 4:
         return (
           <div className="review-page">
-            {showNavigation && (
-              <div className="navigation-container">
-                <div className="progress-bar">
-                  <div className="progress-fill" style={{ width: `${progressPercentage}%` }}></div>
-                  <div className="progress-steps">
-                    {progressSteps.map((step, index) => (
-                      <div
-                        key={step.page}
-                        className={`progress-step ${index <= currentStepIndex ? 'active' : ''} ${step.page === Math.floor(page) ? 'current' : ''}`}
-                        onClick={() => setPage(step.page)}
-                      >
-                        <span className="step-number">{index + 1}</span>
-                        <span className="step-label">{step.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="nav-buttons">
-                  <button
-                    className="nav-btn nav-prev"
-                    onClick={() => setPage(3)}
-                  >
-                    ← Memories
-                  </button>
-                  <button
-                    className="nav-btn nav-next"
-                    onClick={() => setPage(5)}
-                  >
-                    Finish →
-                  </button>
-                </div>
-              </div>
-            )}
             <h1 className="review-title">💖 Share Your Birthday Thoughts 💖</h1>
             <p className="review-message">
               Thank you for spending this special moment with me! Your thoughts and feelings mean everything to me on your birthday. Please take a moment to share how you're feeling and leave me a personal message.
@@ -803,40 +688,6 @@ function App() {
       case 6:
         return (
           <div className="about-page">
-            {showNavigation && (
-              <div className="navigation-container">
-                <div className="progress-bar">
-                  <div className="progress-fill" style={{ width: `${progressPercentage}%` }}></div>
-                  <div className="progress-steps">
-                    {progressSteps.map((step, index) => (
-                      <div
-                        key={step.page}
-                        className={`progress-step ${index <= currentStepIndex ? 'active' : ''} ${step.page === Math.floor(page) ? 'current' : ''}`}
-                        onClick={() => setPage(step.page)}
-                      >
-                        <span className="step-number">{index + 1}</span>
-                        <span className="step-label">{step.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="nav-buttons">
-                  <button
-                    className="nav-btn nav-prev"
-                    onClick={() => setPage(2)}
-                  >
-                    ← Message
-                  </button>
-                  <button
-                    className="nav-btn nav-next"
-                    onClick={() => setPage(4)}
-                  >
-                    Thoughts →
-                  </button>
-                </div>
-              </div>
-            )}
-
             <div>
               <ImageWithFallback
                 className="disha-child-image"
