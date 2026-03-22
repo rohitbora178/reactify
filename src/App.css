@@ -2393,7 +2393,12 @@ body::before {
 
   .next-btn {
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  .about-btn {
+    padding: 10px 20px;
+    font-size: 16px;
   }
 
   .memories-page {
@@ -2478,7 +2483,12 @@ body::before {
 @media (max-width: 480px) {
   .next-btn {
     padding: 8px 16px;
-    font-size: 18px;
+    font-size: 14px;
+  }
+
+  .about-btn {
+    padding: 8px 16px;
+    font-size: 14px;
   }
 
   .memories-page {
