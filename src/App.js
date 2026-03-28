@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 // Components
@@ -44,6 +44,8 @@ function App() {
   const [page, setPage] = useState(0);
   const [countdown, setCountdown] = useState(3);
   const [reactionEmoji, setReactionEmoji] = useState(null);
+  const [songPlayed, setSongPlayed] = useState(false);
+  const audioRef = useRef(null);
 
   const { sendEmail, isSubmitting, showSuccess, setShowSuccess, errorMessage } = useEmail();
 
@@ -72,14 +74,24 @@ function App() {
   }, [page]);
 
   useEffect(() => {
-    if (page === 1.5 && countdown > 0) {
+    if ((page === 1.5 || page === 2) && !songPlayed && audioRef.current) {
+      audioRef.current.play().catch(err => console.log('Audio play failed:', err));
+      setSongPlayed(true);
+    } else if (page >= 3 && audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  }, [page, songPlayed]);
+
+  useEffect(() => {
+    if (page === 1.5 && countdown > 1) {
       const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
       return () => clearTimeout(timer);
-    } else if (page === 1.5 && countdown === 0) {
+    } else if (page === 1.5 && countdown === 1) {
       const timer = setTimeout(() => {
         setPage(2);
         setCountdown(3);
-      }, 500);
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [page, countdown]);
@@ -103,6 +115,7 @@ function App() {
           setPage(0);
           setCountdown(3);
           setReactionEmoji(null);
+          setSongPlayed(false);
         }} />;
       case 6:
         return <AboutPage onNext={() => setPage(4)} onBack={() => setPage(3)} />;
@@ -113,6 +126,7 @@ function App() {
 
   return (
     <ErrorBoundary>
+      <audio ref={audioRef} src="/disha.mpeg" />
       <div className="container">
         {renderPage()}
       </div>

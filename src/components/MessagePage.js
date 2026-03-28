@@ -3,7 +3,6 @@ import ImageWithFallback from './ImageWithFallback';
 
 const MessagePage = ({ onNext, onReactionChange, reactionEmoji, reactionMeanings }) => (
   <div className="card">
-    <audio src="/song.mp3" autoPlay loop />
     <div className="balloons-container">
       <div className="balloon">🎈</div>
       <div className="balloon">🎈</div>
