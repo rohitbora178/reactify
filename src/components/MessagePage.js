@@ -25,6 +25,7 @@ const MessagePage = ({ onNext, onReactionChange, reactionEmoji, reactionMeanings
     <div className="cardHeader">
       <ImageWithFallback
         className="cardImage"
+
         src="/llb.jpg"
         alt="Disha"
       />
